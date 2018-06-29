@@ -7,3 +7,10 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+
+script:
+  - gradle build
+  - gradle sonarqube \
+      -Dsonar.organization=akrasavina-github \
+      -Dsonar.host.url=https://sonarcloud.io \
+      -Dsonar.login=3258d13e051ead437989968a9ec0f0e675186c91
