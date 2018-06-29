@@ -3,14 +3,24 @@ plugins {
     id "org.sonarqube" version "2.6"
 }
 
+sourceSets {
+    main {
+        java.srcDirs 'src/main/java', 'gen'
+        resources.srcDirs 'src/main/resources'
+    }
+    test {
+        java.srcDirs 'src/test/java'
+    }
+}
+
+
 group 'com.yangtools'
 version '0.0.1-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.8
-
-
 
 repositories {
     mavenCentral()
@@ -28,5 +38,16 @@ patchPluginXml {
     changeNotes """
       Add change notes here.<br>
       <em>most HTML tags may be used</em>"""
+}
+
+idea {
+    project {
+        jdkName = 1.8
+        languageLevel = 1.8
+    }
+    module {
+        generatedSourceDirs += file('gen')
+
+    }
 }
 
