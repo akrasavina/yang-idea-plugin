@@ -1,0 +1,19 @@
+{
+  parserClass="com.yangtools.plugin.parser.YangParser"
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Yang"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.yangtools.plugin.psi"
+  psiImplPackage="com.yangtools.plugin.psi.impl"
+
+  elementTypeHolderClass="com.yangtools.plugin.psi.YangTypes"
+  elementTypeClass="com.yangtools.plugin.psi.YangElementType"
+  tokenTypeClass="com.yangtools.plugin.psi.YangTokenType"
+}
+
+simpleFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY

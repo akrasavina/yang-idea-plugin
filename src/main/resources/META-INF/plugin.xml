@@ -1,24 +1,30 @@
 <idea-plugin>
-    <id>com.yangtools.yang-idea-plugin</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <id>com.yangtools.yang-idea-plugin</id>
+  <name>YANG</name>
+  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+  <description><![CDATA[
+    YANG language support plugin
     ]]></description>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
+  <change-notes>Initial release of the plugin.</change-notes>
+  <version>0.0.1</version>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
-    </extensions>
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
 
-    <actions>
-        <!-- Add your actions here -->
-    </actions>
+  <extensions defaultExtensionNs="com.intellij">
+    <fileTypeFactory implementation="com.yangtools.plugin.YangFileTypeFactory"/>
+    <lang.parserDefinition language="Yang"
+      implementationClass="com.yangtools.plugin.YangParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="Yang"
+      implementationClass="com.yangtools.plugin.YangSyntaxHighlighterFactory"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
 </idea-plugin>
